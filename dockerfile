@@ -5,6 +5,25 @@ ENV WORKDIR /usr/src/parsoid
 WORKDIR $WORKDIR
 EXPOSE 8000
 
+##############################
+#
+# general utilities
+#
+##############################
+RUN apt-get update
+RUN apt-get -y install nano
+RUN apt-get -y install vim
+RUN apt-get -y install net-tools
+RUN apt-get -y install zip
+RUN apt-get -y install curl
+
+
+##############################
+#
+# Parsoid
+#
+##############################
+
 RUN set -x; \
     git clone \
       --depth 1 \
